@@ -101,5 +101,26 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background-image: radial-gradient(80rem 40rem at 20% -10%, hsl(var(--accent)/0.25), transparent), radial-gradient(80rem 40rem at 80% 110%, hsl(var(--brand-glow)/0.15), transparent);
   }
+}
+
+/* Additional design tokens and utilities */
+@layer base {
+  :root {
+    --brand: 258 84% 55%;
+    --brand-2: 280 83% 60%;
+    --brand-glow: 258 84% 55%;
+    --gradient-primary: linear-gradient(135deg, hsl(var(--brand)), hsl(var(--brand-2)));
+    --shadow-glow: 0 10px 30px -10px hsl(var(--brand) / 0.35), 0 0 40px hsl(var(--brand-2) / 0.25);
+  }
+}
+
+@layer utilities {
+  .bg-aurora {
+    background: radial-gradient(1200px 600px at 10% -10%, hsl(var(--brand)/0.15), transparent),
+      radial-gradient(1200px 600px at 110% 110%, hsl(var(--brand-2)/0.12), transparent);
+  }
+  .prose-chat p { @apply leading-relaxed; }
+  .prose-chat pre { @apply my-4 rounded-md border bg-muted/40 p-4 overflow-x-auto text-sm; }
 }
