@@ -10,7 +10,7 @@ export interface StreamArgs {
 
 // Stream from Ollama's /api/chat endpoint (JSONL streaming)
 export async function streamOllamaChat({ baseUrl, model, messages, signal, onToken }: StreamArgs) {
-  const res = await fetch(`${baseUrl.replace(/\/$/, "")}/api/chat`, {
+  const res = await fetch(`${baseUrl.replace(/\/$/, "")}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ model, messages, stream: true }),
